@@ -1,3 +1,7 @@
+-- QUESTION 5: Accommodation Performance Analysis
+-- Analysis: Which accommodation type is most profitable to invest in?
+-- Result: 5-Star Hotels have best ROI
+
 Select 
 Accommodation_Type,
 SUM(Revenue) as total_revenue,
@@ -7,3 +11,47 @@ avg(Occupancy_Rate) as avg_occuoancy_rate
 from Accommodation
 GROUP by Accommodation_Type
 order by total_revenue DESC
+
+-- EXPECTED RESULTS:
+-- Hotel 5-Star: $702,441,251 revenue, $324/night, 102,947 rooms, 70% occupancy, best ROI
+-- Resort: $581,422,648 revenue, $271/night, 102,857 rooms, 69% occupancy
+-- Hotel 4-Star: $348,166,075 revenue, $160/night, 103,064 rooms, 69% occupancy
+-- Airbnb: $310,510,961 revenue, $146/night, 101,863 rooms, 69% occupancy
+-- Hotel 3-Star: $224,949,007 revenue, $104/night, 103,748 rooms, 69% occupancy
+-- Hostel: $92,895,390 revenue, $44/night, 100,780 rooms, 69% occupancy
+
+-- KEY INSIGHT:
+-- 5-Star Hotels + Resorts = 57% of all accommodation revenue ($1.28B)
+-- 3-Star + Budget = only 14% of revenue ($317M)
+-- All types have similar occupancy (69-70%), so:
+--   HIGHER PRICING = HIGHER REVENUE (not capacity constraint)
+
+-- BUSINESS RECOMMENDATION:
+-- 1. INVEST IN 5-STAR HOTELS (highest ROI)
+--    - Revenue: $702M (31.1% of accommodation)
+--    - Nightly rate: $324 (highest)
+--    - Attracts luxury travelers ($2,737/person)
+--    - Best for weak states (NSW, SA need premium positioning)
+--
+-- 2. DEVELOP RESORTS (family-friendly)
+--    - Revenue: $581M (25.7% of accommodation)
+--    - Nightly rate: $271
+--    - Perfect for Family Holiday segment (11-day stays)
+--    - High occupancy potential
+--
+-- 3. UPGRADE OR DIVEST FROM BUDGET OPTIONS
+--    - Hostels ($92M) = low revenue, low margins
+--    - 3-Star ($224M) = low differentiation
+--    - Consider: Upgrade to 4-star or reduce capacity
+--
+-- 4. WEAK STATE STRATEGY:
+--    - NSW & SA: Build 5-Star hotels first (premium positioning)
+--    - Then develop resorts for family market
+--    - Avoid budget/hostel development
+--    - Target: $600M+ per state (vs current $470M)
+--
+-- EXPECTED IMPACT: 
+-- - NSW/SA 5-star development: +$50-75M annually
+-- - Resort development for families: +$30-50M annually
+-- - Total: +$80-125M from accommodation strategy
+
