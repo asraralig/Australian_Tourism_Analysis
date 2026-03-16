@@ -1,0 +1,11 @@
+select 
+Attraction,
+round(SUM(Ticket_Revenue)/1000000,2) as total_revenue_in_million,
+round(SUM(Gift_Shop_Spend)/1000000,2) as total_gift_shop_spend_in_million,
+round(sum(International_Visitors)/1000,2) as total_International_Visitors_in_thousand,
+round(SUM(Domestic_Visitors)/1000,2) as total_Domestic_Visitors_in_thousand,
+SUM(Ticket_Revenue)/SUM(International_Visitors) as spend_per_International_Visitors,
+SUM(Ticket_Revenue)/SUM(Domestic_Visitors) as spend_per_Domestic_Visitors
+from Attractions
+group by Attraction
+order by total_revenue_in_million DESC
