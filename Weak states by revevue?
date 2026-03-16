@@ -1,0 +1,8 @@
+select 
+state,
+round(SUM(Total_Spend),2) as total_revenue,
+round(avg(Total_Spend),2) as avg_revenue,
+COUNT(distinct[visitor_type])as visitor_types
+from  Spending_Patterns
+group by [State]
+order by total_revenue DESC
