@@ -1,0 +1,9 @@
+Select 
+Accommodation_Type,
+SUM(Revenue) as total_revenue,
+avg(Avg_Nightly_Rate) as avg_night_rate,
+SUM(Total_Rooms) as total_rooms,
+avg(Occupancy_Rate) as avg_occuoancy_rate
+from Accommodation
+GROUP by Accommodation_Type
+order by total_revenue DESC
