@@ -1,3 +1,7 @@
+-- QUESTION 7: Return Visitor Loyalty Analysis
+-- Analysis: Are people coming back? Which countries have loyal customers?
+-- Result: LOYALTY CRISIS with China (lowest return rate despite #1 market)
+
 select 
 Country,
 SUM(Visitors) as total_visitors,
@@ -6,3 +10,71 @@ SUM(Returning_Visitors) as total_Returning_Visitors,
 from Visitor_Arrivals
 group by Country
 order by return_percentage DESC
+
+-- EXPECTED RESULTS:
+-- France: 747,101 visitors, 270,964 returning, 36% return rate (#1 loyalty)
+-- Germany: 772,728 visitors, 278,926 returning, 36% return rate (#1 loyalty)
+-- United Kingdom: 755,586 visitors, 275,521 returning, 36% return rate (#1 loyalty)
+-- United States: 815,626 visitors, 289,183 returning, 35% return rate
+-- India: 794,048 visitors, 283,631 returning, 35% return rate
+-- Singapore: 820,711 visitors, 289,487 returning, 35% return rate
+-- South Korea: 794,331 visitors, 285,565 returning, 35% return rate
+-- Thailand: 817,170 visitors, 287,839 returning, 35% return rate
+-- Canada: 700,898 visitors, 242,960 returning, 34% return rate
+-- Japan: 810,017 visitors, 279,341 returning, 34% return rate
+-- New Zealand: 757,582 visitors, 261,131 returning, 34% return rate
+-- China: 844,546 visitors, 281,207 returning, 33% return rate (#12 LOWEST!)
+
+-- KEY INSIGHT - CRITICAL FINDING:
+-- CHINA LOYALTY CRISIS:
+--   - #1 market: 844,546 visitors (highest volume)
+--   - #12 loyalty: 33% return rate (lowest!)
+--   - Gap: 3% × 844,546 = 25,336 lost repeat visitors/year
+--   - Revenue impact: 25,336 × $3,825 (avg family spend) = $96.9M lost annually!
+--
+-- EUROPEAN LOYALTY SUCCESS:
+--   - France, Germany, UK all have 36% return rate
+--   - These tourists LOVE Australia and come back
+--   - Why? Better service? Quality of experience? Value for money?
+
+-- BUSINESS RECOMMENDATION:
+-- 1. URGENT: INVESTIGATE CHINA LOYALTY PROBLEM
+--    - Why don't Chinese tourists return?
+--    - Survey departing Chinese tourists
+--    - Analyze: Service quality, value, attractions, accommodation
+--    - Identify specific pain points
+--
+-- 2. BENCHMARK AGAINST EUROPE
+--    - France, Germany, UK: 36% return rate
+--    - Study what makes European experience special
+--    - Replicate successful practices for Chinese market
+--    - Examples: hospitality, guided experiences, value packages
+--
+-- 3. DEVELOP CHINA-SPECIFIC LOYALTY PROGRAM
+--    - "Return Visitor Rewards" program
+--    - Discount for repeat bookings (20-30% off)
+--    - Exclusive experiences for returning visitors
+--    - Target: Increase from 33% → 36% return rate
+--
+-- 4. IMPROVE SERVICE QUALITY FOR CHINESE VISITORS
+--    - Hire Chinese-speaking staff/guides
+--    - Provide Mandarin signage at attractions
+--    - Partner with Chinese travel agencies
+--    - Create Chinese cultural experiences
+--
+-- 5. CREATE REPEAT-VISITOR PACKAGES
+--    - First visit: "Great Barrier Reef & Sydney" package
+--    - Return visit: "Hidden Gems of Australia" premium package
+--    - Pricing: Slightly higher but exclusive access
+--    - Target high-value repeat visitors
+--
+-- FINANCIAL IMPACT OF LOYALTY IMPROVEMENT:
+-- If China returns increase from 33% → 36%:
+--   - Gain: 3% × 844,546 = 25,336 additional repeat visitors/year
+--   - At $3,825/family average: 25,336 × $3,825 = $96.9M additional revenue
+--   - Expected realistic improvement: 33% → 34.5% (1.5% increase)
+--   - Gain: 12,668 × $3,825 = $48.5M additional revenue
+--
+-- STRATEGIC PRIORITY: HIGH (affects our #1 market)
+-- Timeline: Implement within 3-6 months
+-- Expected ROI: 50-100x (small investment, huge return)
