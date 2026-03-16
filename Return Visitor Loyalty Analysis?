@@ -1,0 +1,8 @@
+select 
+Country,
+SUM(Visitors) as total_visitors,
+SUM(Returning_Visitors) as total_Returning_Visitors,
+(SUM(Returning_Visitors)*100)/SUM(Visitors) as return_percentage
+from Visitor_Arrivals
+group by Country
+order by return_percentage DESC
