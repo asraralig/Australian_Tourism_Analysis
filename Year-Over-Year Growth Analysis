@@ -1,3 +1,7 @@
+-- QUESTION 9: Year-Over-Year Growth Analysis
+-- Analysis: Are we growing or declining? 2021-2024 trend
+-- Result: 2024 CRISIS - negative 5.33% decline!
+
 select 
 DATEPART(YEAR,[Month]) as years,
 SUM(Revenue) as total_revenue,
@@ -6,3 +10,71 @@ round(((SUM(Revenue)-LAG(SUM(Revenue)) OVER (ORDER BY DATEPART(YEAR, [Month])))/
 from Accommodation
 group by DATEPART(YEAR,[Month])
 order by years ASC
+
+
+-- EXPECTED RESULTS:
+-- 2021: $557,162,161, NULL, NULL (baseline year)
+-- 2022: $566,558,514, $557,162,161, +1.69% (slight recovery)
+-- 2023: $583,905,631, $566,558,514, +3.06% (good growth!)
+-- 2024: $552,759,026, $583,905,631, -5.33% (CRISIS!)
+
+-- KEY INSIGHT - MAJOR RED FLAG:
+-- PATTERN ANALYSIS:
+--   2021 → 2022: +1.69% (recovering from COVID?)
+--   2022 → 2023: +3.06% (strong recovery!)
+--   2023 → 2024: -5.33% (MAJOR DECLINE!)
+--
+-- 2024 IS WORST YEAR:
+--   - 2024 revenue: $552.8M (lowest in 4 years!)
+--   - EVEN WORSE than 2021: $557.2M
+--   - Lost: $31.1M compared to 2023 peak
+--   - Undoes all 2-year recovery gains
+
+-- BUSINESS RECOMMENDATION - URGENT:
+-- 1. INVESTIGATE ROOT CAUSE IMMEDIATELY
+--    Questions to answer:
+--    - What changed in 2024?
+--    - Did we lose market share to competitors?
+--    - Economic downturn affecting international travel?
+--    - Were there disruptions (natural disasters, strikes, events)?
+--    - Did prices increase too much?
+--    - Did quality/service decline?
+--    - Is this data complete? (all 12 months recorded?)
+--
+-- 2. FINANCIAL ANALYSIS
+--    - Lost revenue 2024 vs 2023: $31.1M
+--    - If trend continues to 2025: another -$30M drop
+--    - Cumulative problem: Growing concern
+--
+-- 3. COMPETITIVE ANALYSIS
+--    - Are other destinations seeing growth while we decline?
+--    - Did we lose market share to Thailand, Singapore, Bali?
+--    - Check industry trends in international tourism
+--
+-- 4. OPERATIONAL AUDIT
+--    - Review accommodation quality metrics
+--    - Check occupancy rates by property type
+--    - Analyze pricing changes (too aggressive?)
+--    - Review customer satisfaction scores
+--    - Examine service complaints
+--
+-- 5. MARKET ANALYSIS
+--    - Which countries' visitors declined most?
+--    - Which regions underperformed in 2024?
+--    - Did seasonal patterns change?
+--    - Any market-specific disruptions?
+--
+-- 6. ACTION PLAN
+--    - Immediate: Form crisis management team
+--    - Week 1: Analyze 2024 performance by week/month
+--    - Week 2: Competitive/industry benchmarking
+--    - Week 3: Customer feedback analysis
+--    - Week 4: Strategic recovery plan
+--    - Ongoing: Weekly monitoring of 2025 trends
+--
+-- TIMELINE: URGENT (address within 2 weeks)
+-- PRIORITY: CRITICAL (potential $30M+ annual impact if not addressed)
+--
+-- NOTE: This analysis suggests a potential crisis situation
+-- that requires immediate executive attention and investigation.
+
