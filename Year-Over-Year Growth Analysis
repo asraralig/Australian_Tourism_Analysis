@@ -1,0 +1,8 @@
+select 
+DATEPART(YEAR,[Month]) as years,
+SUM(Revenue) as total_revenue,
+LAG(SUM(Revenue)) OVER (ORDER BY DATEPART(YEAR, [Month])) AS previous_year_revenue,
+round(((SUM(Revenue)-LAG(SUM(Revenue)) OVER (ORDER BY DATEPART(YEAR, [Month])))/LAG(SUM(Revenue)) OVER (ORDER BY DATEPART(YEAR, [Month])))*100,2) as growth_percent
+from Accommodation
+group by DATEPART(YEAR,[Month])
+order by years ASC
