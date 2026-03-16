@@ -1,0 +1,36 @@
+-- QUESTION 2: Weak States (Lowest Revenue Performers)
+-- Analysis: Which states need investment?
+-- Result: NSW and SA are 12.6% below top performer WA
+
+SELECT 
+    State,
+    ROUND(SUM(Total_Spend), 2) AS total_revenue,
+    ROUND(AVG(Total_Spend), 2) AS avg_monthly_revenue,
+    COUNT(DISTINCT [Visitor_Type]) AS visitor_types
+FROM Spending_Patterns
+GROUP BY State
+ORDER BY total_revenue DESC;
+
+-- EXPECTED RESULTS:
+-- WA: $538,248,686 (#1 - strongest)
+-- ACT: $509,250,423 (#2)
+-- VIC: $509,139,191 (#3)
+-- TAS: $499,235,132 (#4)
+-- NT: $491,908,885 (#5)
+-- QLD: $488,488,210 (#6)
+-- SA: $473,539,841 (#7 - weak)
+-- NSW: $470,527,685 (#8 - weakest, capital city!)
+
+-- KEY INSIGHT:
+-- NSW is the capital city but LOWEST revenue performer
+-- SA is 2nd lowest with only $473.5M
+-- Gap to leader: 12.6% = $67.7M annual opportunity
+-- If NSW matched ACT/VIC level: +$40-50M additional revenue
+
+-- BUSINESS RECOMMENDATION:
+-- 1. Launch urgent marketing campaign for NSW (capital city crisis)
+-- 2. Develop targeted SA marketing campaign
+-- 3. Allocate $1.5M (30% of budget) to weak state recovery
+-- 4. Analyze why WA succeeds - replicate model in NSW
+-- 5. Improve accommodation and attractions in weak states
+-- 6. Expected impact: $65-85M additional annual revenue
