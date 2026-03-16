@@ -1,0 +1,14 @@
+with cte as(select
+region,
+SUM(total_spend_AUD) as total_revenue,
+sum(international_arrivals) as international_visitors,
+sum(domestic_arrivals) as domestic_visitors,
+SUM(total_spend_AUD)/SUM(international_arrivals) as spend_per_international_visitor,
+SUM(total_spend_AUD)/SUM(domestic_arrivals) as spend_per_domestic__visitor,
+round(avg(avg_length_of_stay),2) as avg_stay_per_region
+from Regional_Distribution
+GROUP by region)
+select *,(international_visitors*spend_per_international_visitor) as spend_by_international_visitors,
+(domestic_visitors*spend_per_domestic__visitor) as spend_by_domestic_visitors
+ from cte
+ order by total_revenue DESC
