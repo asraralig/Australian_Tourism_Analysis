@@ -1,0 +1,10 @@
+with cte as(select 
+[Month],
+Country,
+SUM(Visitors) as total_visitor
+from Visitor_Arrivals
+group by [Month],Country),
+cte_2 as(select *,
+RANK() OVER(partition by country order by total_visitor DESC) rnk
+from Cte)
+select [Month],Country,total_visitor from cte_2 where rnk=1
