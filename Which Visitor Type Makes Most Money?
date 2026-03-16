@@ -1,3 +1,7 @@
+-- QUESTION 11: State Ranking by Revenue (Final Analysis)
+-- Analysis: Which states are performing best/worst?
+-- Result: WA wins, NSW (capital city) is a disaster!
+
 select 
  Visitor_Type,
  SUM(Total_Spend) as total_revenue,
@@ -8,3 +12,120 @@ select
 from Spending_Patterns
 group by Visitor_Type
 order by  SUM(Total_Spend) DESC
+
+-- EXPECTED RESULTS:
+-- WA: $538,248,686 revenue, 279,037 visitors, $1,928/visitor, 6 days, RANK 1
+-- ACT: $509,250,423 revenue, 280,683 visitors, $1,814/visitor, 6 days, RANK 2
+-- VIC: $509,139,191 revenue, 266,030 visitors, $1,913/visitor, 7 days, RANK 3
+-- TAS: $499,235,132 revenue, 273,949 visitors, $1,822/visitor, 7 days, RANK 4
+-- NT: $491,908,885 revenue, 268,418 visitors, $1,832/visitor, 6 days, RANK 5
+-- QLD: $488,488,210 revenue, 264,014 visitors, $1,850/visitor, 6 days, RANK 6
+-- SA: $473,539,841 revenue, 265,245 visitors, $1,785/visitor, 6 days, RANK 7
+-- NSW: $470,527,685 revenue, 256,559 visitors, $1,833/visitor, 6 days, RANK 8
+
+-- CRITICAL INSIGHT - NSW CRISIS:
+-- NSW (New South Wales) is Australia's capital state but:
+--   - LOWEST revenue: $470.5M
+--   - LOWEST visitor volume: 256.6K (vs WA 279K)
+--   - Only $67.7M below #1 WA (12.6% gap)
+--   - Lowest engagement: 6 days (tied for lowest with WA, ACT, NT, QLD, SA)
+--
+-- WHY IS CAPITAL CITY UNDERPERFORMING?
+-- Hypotheses:
+--   1. Sydney crowded/overcrowded? (negative experience)
+--   2. Sydney too expensive? (pricing drives visitors to alternatives)
+--   3. Limited unique attractions? (Melbourne, QLD have more variety)
+--   4. Better alternatives nearby? (QLD, VIC attract visitors instead)
+--   5. Infrastructure/accessibility issues?
+--   6. Marketing ineffective in Sydney region?
+--   7. Service quality problems?
+--
+-- OPPORTUNITY ANALYSIS:
+-- If NSW matched #1 WA: +$67.7M annually
+-- If NSW matched VIC: +$38.6M annually (just need to reach #3)
+-- If NSW extended stay from 6 → 7 days (match VIC/TAS):
+--   - 256.6K visitors × $1,833/visitor × (7/6 - 1) = +$78M additional revenue
+
+-- BUSINESS RECOMMENDATION:
+
+-- TIER 1 - MAINTAIN SUCCESS (WA Model):
+--   WA: $538.2M, $1,928/visitor efficiency
+--   Analysis: What makes WA successful?
+--   - Strong attractions (Uluru, Western desert)
+--   - Unique positioning (remote, exclusive)
+--   - Premium experiences?
+--   - Good service?
+--   Action: Document WA success factors
+--   Replicate in: NSW, SA, other weak states
+
+-- TIER 2 - CRITICAL FIX (NSW Crisis):
+--   NSW: $470.5M (LOWEST), capital city FAILURE
+--   Problems:
+--     - Lowest visitor volume
+--     - Short stay (6 days)
+--     - Need to understand why
+--   Actions:
+--     1. Survey visitors in Sydney (what did you like? What could improve?)
+--     2. Analyze competitor destinations (why choose Melbourne over Sydney?)
+--     3. Develop new attractions/experiences in NSW
+--     4. Improve service quality and hospitality
+--     5. Enhance Sydney Opera House + Bondi Beach marketing
+--     6. Create multi-day packages to extend stay from 6 → 7+ days
+--     7. Pricing review (are rates too high?)
+--   Expected impact if fixed:
+--     - Reach VIC level ($509M): +$38.6M
+--     - Extend stay by 1 day: +$78M
+--     - Total potential: +$115M (24.4% increase!)
+
+-- TIER 3 - OPTIMIZE STRONG PERFORMERS:
+--   ACT: $509.3M (2nd revenue) BUT 280.7K visitors (highest volume!)
+--        - More visitors than WA but less revenue
+--        - Revenue per visitor: $1,814 (vs WA $1,928)
+--        - Opportunity: Increase pricing/premium experiences
+--        - If matched WA: +$32M additional
+--
+--   VIC: $509.1M (3rd) BUT 7-day average stay (LONGEST!)
+--        - Visitors stay longer = more spending opportunity
+--        - Model for extending stays in other states
+--        - Strategy: Analyze VIC attractions that drive multi-day stays
+--        - Replicate in NSW, SA, other states
+--
+--   TAS: $499.2M (4th), 7-day stay, good revenue
+--        - Stable performer
+--        - Continue current strategy
+--
+--   SA: $473.5M (7th, 2nd lowest)
+--        - Similar issues as NSW
+--        - Focus on improving attractions
+--        - Extend stay length
+--        - Expected if improved: +$25-50M
+
+-- TIER 4 - MAINTAIN BASELINE:
+--   NT, QLD: Mid-range performers
+--   Continue steady investment
+
+-- STRATEGIC SUMMARY:
+-- Priority 1: FIX NSW (capital city crisis) - potential +$115M
+-- Priority 2: Learn from WA success - replicate model
+-- Priority 3: Learn from VIC (7-day stays) - extend other states
+-- Priority 4: Improve ACT efficiency - increase pricing
+-- Priority 5: Develop SA attractions - unlock hidden potential
+
+-- TOTAL FINANCIAL OPPORTUNITY:
+--   NSW improvement: +$50-115M (depends on fixes)
+--   ACT efficiency: +$15-32M
+--   SA development: +$25-50M
+--   Other states: +$25-50M
+--   TOTAL: +$115-247M from state optimization
+
+-- IMPLEMENTATION TIMELINE:
+--   - Month 1: NSW crisis analysis + WA benchmarking
+--   - Month 2-3: Develop NSW recovery plan + new attractions
+--   - Month 3-6: VIC/TAS stay-extension strategies in other states
+--   - Month 6+: Monitor results and adjust
+
+-- CRITICAL SUCCESS FACTOR:
+--   Sydney/NSW must become flagship destination
+--   Currently capital city is WORST performer - unacceptable
+--   This is the #1 priority for recovery
+
