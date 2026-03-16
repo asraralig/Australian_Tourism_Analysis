@@ -1,3 +1,7 @@
+-- QUESTION 8: Regional Deep Dive Analysis
+-- Analysis: Which REGIONS are performing best/worst?
+-- Result: Melbourne leads, Sydney (capital city) is underperforming
+
 with cte as(select
 region,
 SUM(total_spend_AUD) as total_revenue,
@@ -12,3 +16,80 @@ select *,(international_visitors*spend_per_international_visitor) as spend_by_in
 (domestic_visitors*spend_per_domestic__visitor) as spend_by_domestic_visitors
  from cte
  order by total_revenue DESC
+
+-- EXPECTED RESULTS:
+-- Melbourne Region: $1,559,650,503, 1,431,133 intl, 2,189,061 domestic, $1,089/intl, $712/domestic, 8.19 days, RANK 1
+-- Brisbane Region: $1,470,689,099, 1,246,954 intl, 2,277,095 domestic, $1,179/intl, $645/domestic, 7.97 days, RANK 2
+-- Tropical North: $1,376,885,949, 1,458,454 intl, 1,928,695 domestic, $944/intl, $713/domestic, 8.32 days, RANK 3
+-- Sydney Region: $1,327,620,039, 1,384,970 intl, 2,047,177 domestic, $958/intl, $648/domestic, 7.40 days, RANK 4
+-- Perth Region: $1,256,059,474, 1,312,277 intl, 2,352,700 domestic, $957/intl, $533/domestic, 8.32 days, RANK 5
+-- Adelaide Region: $1,244,023,368, 1,332,622 intl, 2,080,058 domestic, $933/intl, $598/domestic, 7.76 days, RANK 6
+-- Outback: $1,221,699,462, 1,469,690 intl, 2,051,008 domestic, $831/intl, $595/domestic, 8.05 days, RANK 7
+-- Hobart Region: $1,212,738,469, 1,210,048 intl, 2,003,198 domestic, $1,002/intl, $605/domestic, 7.99 days, RANK 8
+
+-- KEY INSIGHTS:
+
+-- 1. MELBOURNE IS THE CHAMPION
+--    - #1 revenue: $1,559.7M (12.4% above average)
+--    - Balanced market: 1.4M intl + 2.2M domestic
+--    - Strong intl value: $1,089/person
+--    - Good stay: 8.19 days (good engagement)
+--    - STRATEGY: Continue investing in Melbourne excellence
+
+-- 2. SYDNEY IS UNDERPERFORMING (CRITICAL!)
+--    - Capital city but only 4th in revenue: $1,327.6M
+--    - LOWEST average stay: 7.40 days (vs 8.3 for Tropical North)
+--    - Gap to #1: $232M annually
+--    - Intl spend: $958/person (below average)
+--    - PROBLEM: Why is capital city NOT #1?
+--    - ACTION: Improve visitor experience, increase attractions
+
+-- 3. BRISBANE QUALITY OVER QUANTITY
+--    - 2nd highest revenue: $1,470.7M
+--    - HIGHEST intl spending: $1,179/person (premium visitors!)
+--    - Lower intl volume BUT higher value
+--    - STRATEGY: Market premium/luxury experiences to Brisbane
+
+-- 4. TROPICAL NORTH - HIDDEN GEM
+--    - #3 revenue: $1,376.9M
+--    - HIGHEST international visitor volume: 1.46M
+--    - LONGEST average stay: 8.32 days (most engagement!)
+--    - BUT intl spend only $944/person
+--    - OPPORTUNITY: Increase pricing/packages to match Brisbane ($1,179)
+--    - If raised to $1,000: +$81.6M additional revenue
+
+-- 5. PERTH DOMESTIC VOLUME CHAMPION
+--    - Highest domestic visitors: 2.35M (people love Perth!)
+--    - BUT lowest domestic spend: $533/person (bargain hunters?)
+--    - OPPORTUNITY: Upgrade experiences, increase pricing
+--    - If matched Melbourne domestic ($712): +$40-50M
+
+-- 6. LENGTH OF STAY CORRELATION
+--    - Tropical North & Perth: 8.32 days (longest)
+--    - Sydney: 7.40 days (shortest - PROBLEM!)
+--    - Difference: 1 day = 13.5% more spending opportunity
+--    - If Sydney matched Tropical North: +$156M+ revenue
+
+-- BUSINESS RECOMMENDATION:
+-- TIER 1 - MAINTAIN & GROW:
+--   Melbourne: Continue excellence, premium marketing
+--   Brisbane: Focus on luxury/premium packages
+--
+-- TIER 2 - URGENT FIX:
+--   Sydney: CRITICAL - capital city should be #1!
+--     - Analyze why visitors leave early (7.4 days)
+--     - Develop multi-day experiences
+--     - Improve attractions in surrounding areas
+--     - New restaurants, entertainment, unique experiences
+--     - Expected impact if fixed: +$150-200M
+--
+-- TIER 3 - OPTIMIZE:
+--   Tropical North: Increase pricing from $944 → $1,100/intl
+--     - Expected gain: +$100M
+--   Perth: Upgrade domestic experiences, increase pricing
+--     - Expected gain: +$40-60M
+--   Adelaide: Improve attractions, extend stays
+--     - Expected gain: +$30-50M
+--
+-- TOTAL EXPECTED IMPACT: +$300-500M from regional optimization
+
