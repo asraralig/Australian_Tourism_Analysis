@@ -1,0 +1,8 @@
+select 
+Month,
+sum(visitors) as total_visitors_per_month,
+avg(visitors) as avg_visitors_per_month,
+count(distinct Country) as countries_in_month
+ from Visitor_Arrivals
+ group by [Month]
+ order by total_visitors_per_month DESC
