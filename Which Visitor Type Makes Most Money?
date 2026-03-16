@@ -1,0 +1,10 @@
+select 
+ Visitor_Type,
+ SUM(Total_Spend) as total_revenue,
+ avg(Avg_Stay_Length) as Avg_Stay_Length,
+ avg(avg_daily_spend) as avg_daily_spend,
+ sum(visitor_count) as Total_visitors,
+ SUM(total_spend)/SUM(visitor_count) as spend_per_visitor
+from Spending_Patterns
+group by Visitor_Type
+order by  SUM(Total_Spend) DESC
